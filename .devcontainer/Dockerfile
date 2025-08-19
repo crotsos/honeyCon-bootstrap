@@ -115,7 +115,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/doc
     rm -rf /var/lib/apt/lists/*
 COPY --from=openflow /usr/local/bin/ /usr/local/bin/
 COPY --from=mnexec /output/mnexec /usr/bin/mnexec
-RUN pip install --break-system-packages --upgrade pip grpcio grpcio-tools
+RUN pip install --break-system-packages --upgrade grpcio grpcio-tools
 WORKDIR /src/mininet
 RUN git clone -b ${MININET_VERSION} ${MININET_REPO} .
 RUN pip3 install --break-system-packages .
